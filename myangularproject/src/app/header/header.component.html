@@ -1,0 +1,48 @@
+<form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
+
+  <p>
+    <label for="firstname">First Name</label>
+    <input type="text" name="firstname" #firstname=ngModel required    minlength="4"
+    [(ngModel)]="contactForm.value.firstname">
+  </p>    <br>
+      <!-- <table>        <tr>          <td>firstname.pristine    :{{firstname.pristine}}</td> </tr>
+          <tr><td>firstname.touched    :{{firstname.touched}}</td></tr>
+          <tr><td>firstname.dirty    :{{firstname.dirty}}</td></tr> 
+
+          <tr><td>firstname.invalid    :{{firstname.invalid}}</td></tr>
+      </table> -->
+  <div *ngIf="firstname.invalid && (firstname.dirty || firstname.touched)" class="alert text-danger border-danger">
+     <div *ngIf="firstname.errors?.['required']">firstname is required.</div> 
+   <div *ngIf="firstname.errors?.['minlength']"> firstname must be at least 4 characters long.   </div> 
+  </div>
+    <p>
+      <label for="lastname">Last Name</label>
+      <input type="text" name="lastname" ngModel>
+    </p>
+
+    <p>
+      <label for="email">Email </label>
+      <input type="text" id="email" name="email" ngModel>
+    </p>
+
+    <p>
+      <label for="gender">Geneder</label>
+      <input type="radio" value="male" name="gender" ngModel> Male
+      <input type="radio" value="female" name="gender" ngModel> Female
+    </p>
+
+    <p>
+      <label for="isMarried">Married</label>
+      <input type="checkbox" name="isMarried" ngModel>
+    </p>
+    <select name="country" ngModel>
+      <option [ngValue]="c.id" *ngFor="let c of countryList">
+        {{c.name}}
+      </option>
+    </select>
+
+    <p>
+      <button type="submit">Submit</button>
+    </p>
+    <div>{{contactForm.value.isMarried }}</div>
+</form>

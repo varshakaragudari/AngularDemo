@@ -1,0 +1,9 @@
+h1{
+    height: 50px;
+    width:100%;
+    background-color: brown;
+    text-align: center;
+    font-size: larger;
+    color: beige;
+    padding: 50px;
+}

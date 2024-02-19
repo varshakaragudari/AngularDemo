@@ -1,0 +1,11 @@
+<Form [formGroup]="myloginform"
+ (ngSubmit)="loginUser()">
+    <input type="text"
+     name="user" 
+     formControlName="user" ngModel required/>   
+
+    <input type="password"
+     name="pass"
+      formControlName="pass" ngModel/>        
+    <button >Submit</button>
+</Form>
